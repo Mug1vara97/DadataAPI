@@ -10,20 +10,33 @@ using System.Threading.Tasks;
 
 namespace DadataApi
 {
+    /// <summary>
+    /// Класс для хранения списка людей.
+    /// </summary>
     public class List
     {
+        /// <summary>
+        /// Список людей.
+        /// </summary
         public List<Person> People { get; set; }
-
+        /// <summary>
+        /// Конструктор класса List.
+        /// </summary>
         public List()
         {
             People = new List<Person>();
         }
-
+        /// <summary>
+        /// Метод для добавления человека в список.
+        /// </summary>
+        /// <param name="person">Объект класса Person.</param>
         public void AddPerson(Person person)
         {
             People.Add(person);
         }
-
+        /// <summary>
+        /// Метод для отображения информации о людях из списка.
+        /// </summary>
         public void Display()
         {
             foreach (var person in People)
@@ -32,8 +45,10 @@ namespace DadataApi
                 Console.WriteLine();
             }
         }
-
-        public void SaveFile()
+        /// <summary>
+        /// Метод для сохранения списка людей в файл people.txt.
+        /// </summary>
+        public void saveFile()
         {
             using (StreamWriter writer = new StreamWriter("people.txt", append: true))
             {
@@ -46,21 +61,47 @@ namespace DadataApi
         }
     }
 
+    /// <summary>
+    /// Класс для представления информации о человеке.
+    /// </summary>
     public class Person
     {
+        /// <summary>
+        /// Номер телефона человека.
+        /// </summary>
         public string PhoneNumber { get; set; }
+        /// <summary>
+        /// Мобильный оператор телефона.
+        /// </summary>
         public string Operator { get; set; }
+        /// <summary>
+        /// ФИО человека.
+        /// </summary>
         public string Initials { get; set; }
+        /// <summary>
+        /// ИНН человека.
+        /// </summary>
         public string INN { get; set; }
+        /// <summary>
+        /// Страна проживания.
+        /// </summary>
         public string Country { get; set; }
+        /// <summary>
+        /// Пол человека.
+        /// </summary>
         public string Gender { get; set; }
-
+        /// <summary>
+        /// Переопределение метода ToString для вывода информации о человеке.
+        /// </summary>
+        /// <returns>Строка с информацией о человеке.</returns>
         public override string ToString()
         {
-            return $"{Initials}:\n Номер телефона:  {PhoneNumber}\n Мобильный оператор:  {Operator}\n ИНН: {INN}\n Страна:  {Country}\n Пол:  {Gender}";
+            return $" {Initials}:\n Номер телефона:  {PhoneNumber}\n Мобильный оператор:  {Operator}\n ИНН: {INN}\n Страна:  {Country}\n Пол:  {Gender}";
         }
-
-        public void SaveFile()
+        /// <summary>
+        /// Метод для сохранения информации о человеке в файл.
+        /// </summary>
+        public void saveFile()
         {
             using (StreamWriter writer = new StreamWriter("people.txt", append: true))
             {
@@ -69,40 +110,33 @@ namespace DadataApi
             }
         }
     }
-
     public class Request
     {
         public string Query { get; set; }
     }
-
     public class PrettyName
     {
         public string Result { get; set; }
         public string Gender { get; set; }
     }
-
     public class NumberInfo
     {
         public string Phone { get; set; }
         public string Provider { get; set; }
         public string Country { get; set; }
     }
-
     public class InnInfo
     {
         public List<Suggestions> Suggestions { get; set; }
     }
-
     public class Suggestions
     {
         public Data Data { get; set; }
     }
-
     public class Data
     {
         public Management Management { get; set; }
     }
-
     public class Management
     {
         public string Name { get; set; }
@@ -174,7 +208,7 @@ namespace DadataApi
                             break;
 
                         case 3:
-                            peopleList.SaveFile();
+                            peopleList.saveFile();
                             Console.WriteLine("Список людей сохранен в файл 'people.txt'.");
                             break;
 
