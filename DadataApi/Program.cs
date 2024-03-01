@@ -46,11 +46,11 @@ namespace DadataApi
             }
         }
         /// <summary>
-        /// Метод для сохранения списка людей в файл people.txt.
+        /// Метод для сохранения списка людей в txt файл.
         /// </summary>
         public void saveFile()
         {
-            using (StreamWriter writer = new StreamWriter("people.txt", append: true))
+            using (StreamWriter writer = new StreamWriter("zxc.txt", append: true))
             {
                 foreach (var person in People)
                 {
@@ -103,7 +103,7 @@ namespace DadataApi
         /// </summary>
         public void saveFile()
         {
-            using (StreamWriter writer = new StreamWriter("people.txt", append: true))
+            using (StreamWriter writer = new StreamWriter("zxc.txt", append: true))
             {
                 writer.WriteLine(this);
                 writer.WriteLine();
@@ -209,7 +209,7 @@ namespace DadataApi
 
                         case 3:
                             peopleList.saveFile();
-                            Console.WriteLine("Список людей сохранен в файл 'people.txt'.");
+                            Console.WriteLine("Список людей сохранен в txt файл.");
                             break;
 
                         case 4:
